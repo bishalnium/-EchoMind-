@@ -385,3 +385,10 @@ document.addEventListener('keydown', (e) => {
 function logSessionMetrics() {
     console.debug(`[EchoMind] Active conversation turns: ${conversation.length}`);
 }
+
+// Global copy code utility
+window.copyCodeToClipboard = function(code) {
+    navigator.clipboard.writeText(code).then(() => {
+        console.debug('[EchoMind] Code block copied to clipboard');
+    });
+};
