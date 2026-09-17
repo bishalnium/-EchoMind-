@@ -475,3 +475,11 @@ button:focus-visible, textarea:focus-visible, input:focus-visible, select:focus-
     outline: 2px solid #3b82f6;
     outline-offset: 2px;
 }
+
+/* Smooth bubble rendering and elevation */
+.chat-bubble {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.chat-bubble:hover {
+    transform: translateY(-1px);
+}
