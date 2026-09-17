@@ -246,6 +246,11 @@ function addCopyButtons(container) {
     lucide.createIcons();
 }
 
+/**
+ * Dispatches the active user message to the Groq stream inference endpoint,
+ * handling chunk decoding, markdown rendering, and autoscroll.
+ * @returns {Promise<void>}
+ */
 async function sendMessage() {
     const content = promptInput.value.trim();
     const apiKey = localStorage.getItem('groq_api_key') || DEFAULT_GROQ_KEY;
