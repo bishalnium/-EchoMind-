@@ -483,3 +483,12 @@ button:focus-visible, textarea:focus-visible, input:focus-visible, select:focus-
 .chat-bubble:hover {
     transform: translateY(-1px);
 }
+
+@media (max-width: 640px) {
+    .chat-container {
+        padding: 0.5rem !important;
+    }
+    .composer {
+        border-radius: 12px !important;
+    }
+}
