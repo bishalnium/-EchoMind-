@@ -373,3 +373,10 @@ async function sendMessage() {
 
 // Init
 loadSettings();
+
+// Escape key listener for settings modal
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && settingsModal && !settingsModal.classList.contains('hidden')) {
+        settingsModal.classList.add('hidden');
+    }
+});
