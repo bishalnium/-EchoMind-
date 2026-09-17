@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echo Mind - AI Chat Studio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Highlight.js Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="left-controls">
+            <div class="brand-logo"><i data-lucide="zap"></i><span>EchoMind</span></div>
+            <div class="dropdown-group">
+                <select id="modelSelect" class="styled-select">
+                    <option value="qwen/qwen3.8-27b" selected>Qwen 3.8 27B</option>
+                    <option value="openai/gpt-oss-120b">GPT-OSS 120B</option>
+                    <option value="openai/gpt-oss-20b">GPT-OSS 20B</option>
+                </select>
+                <select id="personaSelect" class="styled-select">
+                    <option value="general" selected>General Assistant</option>
+                    <option value="code">Code Expert</option>
+                    <option value="creative">Creative Writer</option>
+                </select>
+            </div>
+        </div>
+        <div class="right-controls">
+            <button id="newChatBtn" class="icon-btn" title="New Chat"><i data-lucide="plus-circle"></i></button>
+            <button id="exportBtn" class="icon-btn" title="Export as MD"><i data-lucide="download"></i></button>
+            <button id="clearHistoryBtn" class="icon-btn" title="Clear History"><i data-lucide="trash-2"></i></button>
+            <button id="settingsBtn" class="icon-btn" title="Settings"><i data-lucide="settings"></i></button>
+        </div>
+    </header>
+
+    <main class="chat-container">
+        <div id="chatHistory" class="chat-history">
+            <!-- Welcome screen -->
+            <div id="welcomeScreen" class="welcome-screen">
+                <h1>Echo Mind</h1>
+                <p>Select a persona and start chatting.</p>
+                <div class="starter-cards">
+                    <button class="starter-card">Explain quantum computing simply</button>
+                    <button class="starter-card">Write a python script to scrape a website</button>
+                    <button class="starter-card">Compose a poem about the ocean</button>
+                </div>
+            </div>
+            <!-- Messages go here -->
+        </div>
+    </main>
+
+    <div class="input-area">
+        <div class="metrics-bar">
+            <span><i data-lucide="zap"></i> <span id="speedMetric">0.0</span> t/s</span>
+            <span><i data-lucide="clock"></i> <span id="latencyMetric">0</span> ms</span>
+            <span><i data-lucide="hash"></i> <span id="tokensMetric">0</span> tokens</span>
+        </div>
+        <div class="input-wrapper">
+            <textarea id="promptInput" placeholder="Type your message here..." rows="1"></textarea>
+            <div class="action-buttons">
+                <button id="stopBtn" class="action-btn stop-btn hidden" title="Stop Generation"><i data-lucide="square"></i></button>
+                <button id="sendBtn" class="action-btn send-btn" title="Send Message"><i data-lucide="send"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button id="closeSettingsBtn" class="icon-btn"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label for="apiKey">GROQ API Key</label>
+                    <div class="password-input">
+                        <input type="password" id="apiKey" placeholder="gsk_...">
+                        <button id="toggleVisibilityBtn" type="button"><i data-lucide="eye"></i></button>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label for="temperature">Temperature: <span id="tempValue">1.0</span></label>
+                    <input type="range" id="temperature" min="0" max="2" step="0.1" value="1.0">
+                </div>
+                <div class="setting-group">
+                    <label for="maxTokens">Max Tokens: <span id="tokensValue">4096</span></label>
+                    <input type="range" id="maxTokens" min="256" max="8192" step="256" value="4096">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="saveSettingsBtn" class="primary-btn">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="app.js?v=3"></script>
+</body>
+</html>
