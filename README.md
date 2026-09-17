@@ -22,3 +22,16 @@ An ultra-fast, minimalist streaming chat studio powered by Groq's high-speed LPU
 - Marked.js for markdown parsing
 - Highlight.js for code block styling
 - Lucide Icons
+
+## ⚡ Features Highlight
+- **Sub-second LPU Inference**: Real-time streaming powered by Groq.
+- **Dynamic Personas**: General, Code, and Creative specialized assistants.
+- **Markdown & Code Highlighting**: Syntax-colored code output with one-click copy.
+
+## ⌨️ Shortcuts
+- `Enter`: Send message
+- `Shift` + `Enter`: Insert newline
+- `Esc`: Close settings dialog
+
+## 📄 License
+Licensed under [MIT](LICENSE).
