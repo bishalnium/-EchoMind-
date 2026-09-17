@@ -380,3 +380,8 @@ document.addEventListener('keydown', (e) => {
         settingsModal.classList.add('hidden');
     }
 });
+
+// Session telemetry
+function logSessionMetrics() {
+    console.debug(`[EchoMind] Active conversation turns: ${conversation.length}`);
+}
